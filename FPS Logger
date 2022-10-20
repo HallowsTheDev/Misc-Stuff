@@ -1,0 +1,500 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local BoogaHealerV3 = Instance.new("ScreenGui")
+local Holder = Instance.new("Frame")
+local Ping = Instance.new("Frame")
+local PingLabel = Instance.new("TextLabel")
+local FPS = Instance.new("Frame")
+local FPSLabel = Instance.new("TextLabel")
+local Heals = Instance.new("Frame")
+local HealsLabel = Instance.new("TextLabel")
+local HealsNumber = Instance.new("TextLabel")
+local Speed = Instance.new("Frame")
+local SpeedLabel = Instance.new("TextLabel")
+local AFK = Instance.new("Frame")
+local AFK_Button = Instance.new("TextButton")
+local Close = Instance.new("Frame")
+local CloseButton = Instance.new("TextButton")
+local SpecificHeal = Instance.new("Frame")
+local SpecLabel = Instance.new("TextLabel")
+local SpecNumber = Instance.new("TextLabel")
+
+--Properties:
+
+BoogaHealerV3.Name = "BoogaHealerV3"
+BoogaHealerV3.Parent = game:GetService("CoreGui")
+
+Holder.Name = "Holder"
+Holder.Parent = BoogaHealerV3
+Holder.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Holder.BackgroundTransparency = 1.000
+Holder.Position = UDim2.new(0.0643394962, 0, 0, 0)
+Holder.Size = UDim2.new(0, 480, 0, 20)
+
+Ping.Name = "Ping"
+Ping.Parent = Holder
+Ping.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+Ping.BackgroundTransparency = 0.400
+Ping.Size = UDim2.new(0, 80, 0, 20)
+
+PingLabel.Name = "PingLabel"
+PingLabel.Parent = Ping
+PingLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+PingLabel.BackgroundTransparency = 1.000
+PingLabel.Size = UDim2.new(0, 80, 0, 20)
+PingLabel.Font = Enum.Font.FredokaOne
+PingLabel.Text = "Ping : 0"
+PingLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+PingLabel.TextSize = 14.000
+
+FPS.Name = "FPS"
+FPS.Parent = Holder
+FPS.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+FPS.BackgroundTransparency = 0.400
+FPS.Position = UDim2.new(0.163944453, 0, 0, 0)
+FPS.Size = UDim2.new(0, 80, 0, 20)
+
+FPSLabel.Name = "FPSLabel"
+FPSLabel.Parent = FPS
+FPSLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+FPSLabel.BackgroundTransparency = 1.000
+FPSLabel.Size = UDim2.new(0, 80, 0, 20)
+FPSLabel.Font = Enum.Font.FredokaOne
+FPSLabel.Text = "FPS: 0"
+FPSLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+FPSLabel.TextSize = 14.000
+
+Heals.Name = "Heals"
+Heals.Parent = Holder
+Heals.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+Heals.BackgroundTransparency = 0.400
+Heals.Position = UDim2.new(0.332055569, 0, 0, 0)
+Heals.Size = UDim2.new(0, 80, 0, 20)
+
+HealsLabel.Name = "HealsLabel"
+HealsLabel.Parent = Heals
+HealsLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+HealsLabel.BackgroundTransparency = 1.000
+HealsLabel.Position = UDim2.new(0.00625000009, 0, 0.0250000004, 0)
+HealsLabel.Size = UDim2.new(0, 40, 0, 20)
+HealsLabel.Font = Enum.Font.FredokaOne
+HealsLabel.Text = "Heals: 0"
+HealsLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+HealsLabel.TextSize = 14.000
+HealsLabel.TextWrapped = true
+
+HealsNumber.Name = "HealsNumber"
+HealsNumber.Parent = Heals
+HealsNumber.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+HealsNumber.BackgroundTransparency = 1.000
+HealsNumber.Position = UDim2.new(0.506250024, 0, -0.0250000004, 0)
+HealsNumber.Size = UDim2.new(0, 40, 0, 20)
+HealsNumber.Font = Enum.Font.FredokaOne
+HealsNumber.Text = "0"
+HealsNumber.TextColor3 = Color3.fromRGB(255, 255, 255)
+HealsNumber.TextScaled = true
+HealsNumber.TextSize = 14.000
+HealsNumber.TextWrapped = true
+
+Speed.Name = "Speed"
+Speed.Parent = Holder
+Speed.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+Speed.BackgroundTransparency = 0.400
+Speed.Position = UDim2.new(0.498083383, 0, 0, 0)
+Speed.Size = UDim2.new(0, 80, 0, 20)
+
+SpeedLabel.Name = "SpeedLabel"
+SpeedLabel.Parent = Speed
+SpeedLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+SpeedLabel.BackgroundTransparency = 1.000
+SpeedLabel.Size = UDim2.new(0, 80, 0, 20)
+SpeedLabel.Font = Enum.Font.FredokaOne
+SpeedLabel.Text = "Speed: Slow"
+SpeedLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+SpeedLabel.TextSize = 14.000
+
+AFK.Name = "AFK"
+AFK.Parent = Holder
+AFK.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+AFK.BackgroundTransparency = 0.400
+AFK.Position = UDim2.new(0.664111137, 0, 0, 0)
+AFK.Size = UDim2.new(0, 80, 0, 20)
+
+AFK_Button.Name = "AFK_Button"
+AFK_Button.Parent = AFK
+AFK_Button.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+AFK_Button.BackgroundTransparency = 1.000
+AFK_Button.BorderSizePixel = 0
+AFK_Button.Position = UDim2.new(0, 0, 0.0489999987, 0)
+AFK_Button.Size = UDim2.new(0, 80, 0, 20)
+AFK_Button.Font = Enum.Font.FredokaOne
+AFK_Button.Text = "AFK: OFF"
+AFK_Button.TextColor3 = Color3.fromRGB(255, 255, 255)
+AFK_Button.TextSize = 14.000
+
+Close.Name = "Close"
+Close.Parent = Holder
+Close.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+Close.BackgroundTransparency = 0.400
+Close.Position = UDim2.new(0.830138922, 0, 0, 0)
+Close.Size = UDim2.new(0, 80, 0, 20)
+
+CloseButton.Name = "CloseButton"
+CloseButton.Parent = Close
+CloseButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+CloseButton.BackgroundTransparency = 1.000
+CloseButton.Size = UDim2.new(0, 80, 0, 20)
+CloseButton.Font = Enum.Font.FredokaOne
+CloseButton.Text = "Close UI"
+CloseButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+CloseButton.TextSize = 14.000
+
+SpecificHeal.Name = "SpecificHeal"
+SpecificHeal.Parent = Holder
+SpecificHeal.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+SpecificHeal.BackgroundTransparency = 0.400
+SpecificHeal.Position = UDim2.new(0.332055569, 0, 1, 0)
+SpecificHeal.Size = UDim2.new(0, 80, 0, 20)
+SpecificHeal.Visible = false
+
+SpecLabel.Name = "SpecLabel"
+SpecLabel.Parent = SpecificHeal
+SpecLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+SpecLabel.BackgroundTransparency = 1.000
+SpecLabel.Position = UDim2.new(0.00625000009, 0, 0.0250000004, 0)
+SpecLabel.Size = UDim2.new(0, 40, 0, 20)
+SpecLabel.Font = Enum.Font.FredokaOne
+SpecLabel.Text = "Blood: 0"
+SpecLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+SpecLabel.TextSize = 14.000
+SpecLabel.TextWrapped = true
+
+SpecNumber.Name = "SpecNumber"
+SpecNumber.Parent = SpecificHeal
+SpecNumber.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+SpecNumber.BackgroundTransparency = 1.000
+SpecNumber.Position = UDim2.new(0.506249964, 0, 0.0250000004, 0)
+SpecNumber.Size = UDim2.new(0, 40, 0, 20)
+SpecNumber.Font = Enum.Font.FredokaOne
+SpecNumber.Text = "0"
+SpecNumber.TextColor3 = Color3.fromRGB(255, 255, 255)
+SpecNumber.TextScaled = true
+SpecNumber.TextSize = 14.000
+SpecNumber.TextWrapped = true
+
+-- Scripts:
+
+local function IMWBU_fake_script() -- Ping.PingScript 
+	local script = Instance.new('LocalScript', Ping)
+
+	local PingLabel = script.Parent.PingLabel
+	
+	while true do
+		local UnfilteredPing = tonumber(game:GetService("Stats"):FindFirstChild("PerformanceStats").Ping:GetValue())
+		local RealPing = math.floor(UnfilteredPing)
+	
+		PingLabel.Text = "PING: " .. RealPing
+		task.wait()
+	end
+end
+coroutine.wrap(IMWBU_fake_script)()
+local function TZSYXBR_fake_script() -- FPS.FPS Script 
+	local script = Instance.new('LocalScript', FPS)
+
+	local FPS = 0
+	
+	local FPS_Label = script.Parent.FPSLabel
+	local RS = game:GetService("RunService")
+	
+	RS.RenderStepped:Connect(function()
+		FPS = FPS + 1
+	end)
+	
+	while true do
+		FPS_Label.Text = "FPS: " .. FPS
+		FPS = 0
+		task.wait(1)
+	end
+end
+coroutine.wrap(TZSYXBR_fake_script)()
+local function HOKTLD_fake_script() -- Heals.LocalScript 
+	local script = Instance.new('LocalScript', Heals)
+
+	
+end
+coroutine.wrap(HOKTLD_fake_script)()
+local function PBPG_fake_script() -- AFK.AFK_Script 
+	local script = Instance.new('LocalScript', AFK)
+
+	local Button = script.Parent.AFK_Button
+	
+	local RS = game:GetService("RunService")
+	local path = game:GetService("ReplicatedStorage").Events.UseBagltem
+	
+	local PLAYER = game:GetService("Players").LocalPlayer.Name
+	local AVATAR = game:GetService("Workspace"):WaitForChild(PLAYER)
+	
+	local Holder = script.Parent.Parent.Parent.Holder
+	local SpecHealNumber = Holder.SpecificHeal.SpecNumber
+	local SpecHealLabel = Holder.SpecificHeal.SpecLabel
+	local HealsNumber = Holder.Heals.HealsNumber
+	
+	_G.AFK_Status = false
+	
+	function ButtonPressed()
+		if _G.AFK_Status == false then
+			Button.Text = "AFK: ON"
+			_G.AFK_Status = true
+			_G.Toggle = false
+			_G.SpeedToggle = false
+		else
+			_G.AFK_Status = false
+			Button.Text = "AFK: OFF"
+		end
+	end
+	
+	Button.MouseButton1Down:Connect(ButtonPressed)
+		
+	
+	RS.RenderStepped:Connect(function()
+		local HUMANOID = AVATAR.Humanoid
+		
+		if _G.AFK_Status == true then
+			if HUMANOID.Health < 100 then
+				path:FireServer(_G.BaseHeal)
+				HealsNumber.Text = _G.MainCount + 1
+				_G.MainCount = _G.MainCount + 1
+	
+				if _G.BaseHeal == "Bloodfruit" then
+					SpecHealNumber.Text = _G.BloodCount + 1
+					SpecHealLabel.Text = "Blood: "
+					_G.BloodCount = _G.BloodCount + 1
+				elseif _G.BaseHeal == "Berry" then
+					SpecHealLabel.Text = "Berry: "
+					SpecHealNumber.Text = _G.BerryCount + 1
+					_G.BerryCount = _G.BerryCount + 1
+				elseif _G.BaseHeal == "Bluefruit" then
+					SpecHealLabel.Text = "Blue: "
+					SpecHealNumber.Text = _G.BlueCount + 1
+					_G.BlueCount = _G.BlueCount + 1
+				end
+			end
+		end
+	end)
+end
+coroutine.wrap(PBPG_fake_script)()
+local function EIWR_fake_script() -- CloseButton.CloseScript 
+	local script = Instance.new('LocalScript', CloseButton)
+
+	local UIS = game:GetService("UserInputService")
+	local Holder = script.Parent.Parent.Parent.Parent.Holder
+	local Button = script.Parent
+	local Heals = Holder.Heals
+	local close = Holder.Close
+	local Speed = Holder.Speed
+	local Ping = Holder.Ping
+	local AFK = Holder.AFK
+	local FPS = Holder.FPS
+	
+	UIS.InputBegan:Connect(function(INPUT)
+		if INPUT.KeyCode == Enum.KeyCode.RightShift then
+			AFK.Visible = true
+			close.Visible = true
+			FPS.Visible = true
+			Heals.Visible = true
+			Ping.Visible = true
+			Speed.Visible = true
+		end
+	end)
+	
+	function ButtonPressed()
+		AFK.Visible = false
+		close.Visible = false
+		FPS.Visible = false
+		Heals.Visible = false
+		Ping.Visible = false
+		Speed.Visible = false
+		
+		game:GetService("StarterGui"):SetCore("SendNotification",{
+			Title = "UI Closed",
+			Text = "Press Right Shift To Open.",
+		})
+	end
+	
+	Button.MouseButton1Down:Connect(ButtonPressed)
+	
+	
+end
+coroutine.wrap(EIWR_fake_script)()
+local function OCMKZ_fake_script() -- Holder.KeyHandler 
+	local script = Instance.new('LocalScript', Holder)
+
+	_G.Speed = false
+	_G.AFK = false
+	_G.Heals = 0
+	
+	_G.BaseHeal = "Bloodfruit"
+	_G.BaseLabel = "Blood"
+	_G.Toggle = false
+	_G.SpeedToggle = false
+	
+	local Holder = script.Parent.Parent.Holder
+	
+	local UIS = game:GetService("UserInputService")
+	local SpecHeal = Holder.SpecificHeal.SpecLabel
+	local Heals = Holder.Heals.HealsLabel
+	local Speed = Holder.Speed.SpeedLabel
+	local Ping = Holder.Ping.PingLabel
+	local FPS = Holder.FPS.FPSLabel
+	local close = Holder.Close
+	
+	local SpecHealNumber = Holder.SpecificHeal.SpecNumber
+	local HealsNumber = Holder.Heals.HealsNumber
+	
+	local temp = false
+	
+	_G.MainCount = 0
+	_G.BlueCount = 0
+	_G.BloodCount = 0
+	_G.BerryCount = 0
+	
+	game:WaitForChild("Players").LocalPlayer:GetMouse().KeyDown:Connect(function(key)
+		if key == 'q' then
+			if _G.Toggle == false then
+				Holder.SpecificHeal.Visible = true
+				_G.Toggle = true
+			else
+				_G.Toggle = false
+			end
+		end
+		if key == 'e' then
+			if _G.BaseHeal == "Bloodfruit" then
+				_G.BaseHeal = "Bluefruit"
+				_G.BaseLabel = "Blue: "
+				Holder.SpecificHeal.Visible = true
+				SpecHeal.Text = "Blue: "
+				SpecHealNumber = tostring(_G.BlueCount)
+			elseif _G.BaseHeal == "Bluefruit" then
+				_G.BaseHeal = "Berry"
+				_G.BaseLabel = "Berry: "
+				Holder.SpecificHeal.Visible = true
+				SpecHeal.Text = "Berry: "
+				SpecHealNumber = tostring(_G.BerryCount)
+			elseif _G.BaseHeal == "Berry" then
+				_G.BaseHeal = "Bloodfruit"
+				_G.BaseLabel = "Blood: "
+				Holder.SpecificHeal.Visible = true
+				SpecHeal.Text = "Blood: "
+				SpecHealNumber = tostring(_G.BloodCount)
+			end
+		end
+	end)
+	
+	UIS.InputBegan:Connect(function(INPUT)
+		if INPUT.KeyCode == Enum.KeyCode.F1 then
+			if _G.SpeedToggle == false then
+				_G.SpeedToggle = true
+				Speed.Text = "Speed: Fast"
+			elseif _G.SpeedToggle == true then
+				_G.SpeedToggle = false
+				Speed.Text = "Speed: Slow"
+			end
+		end
+	end)
+	
+end
+coroutine.wrap(OCMKZ_fake_script)()
+local function JITLCJ_fake_script() -- SpecificHeal.SpecScript 
+	local script = Instance.new('LocalScript', SpecificHeal)
+
+	while true do
+		task.wait(5)
+		if _G.Toggle == false and _G.SpeedToggle == false then
+			script.Parent.Visible = false
+		end
+	end
+end
+coroutine.wrap(JITLCJ_fake_script)()
+local function JEHM_fake_script() -- Holder.HealingHandler 
+	local script = Instance.new('LocalScript', Holder)
+
+	local RS = game:GetService("RunService")
+	local path = game:GetService("ReplicatedStorage").Events.UseBagltem
+	
+	local Holder = script.Parent.Parent.Holder
+	
+	local SpecHealNumber = Holder.SpecificHeal.SpecNumber
+	local SpecHealLabel = Holder.SpecificHeal.SpecLabel
+	local HealsNumber = Holder.Heals.HealsNumber
+	
+	RS.RenderStepped:Connect(function()
+		if _G.Toggle == true and _G.SpeedToggle == true then
+			path:FireServer(_G.BaseHeal)
+			path:FireServer(_G.BaseHeal)
+			HealsNumber.Text = _G.MainCount + 2
+			_G.MainCount = _G.MainCount + 2
+			
+			if _G.BaseHeal == "Bloodfruit" then
+				SpecHealLabel.Text = "Blood: "
+				SpecHealNumber.Text = _G.BloodCount + 2
+				_G.BloodCount = _G.BloodCount + 2
+			elseif _G.BaseHeal == "Berry" then
+				SpecHealLabel.Text = "Berry: "
+				SpecHealNumber.Text = _G.BerryCount + 2
+				_G.BerryCount = _G.BerryCount + 2
+			elseif _G.BaseHeal == "Bluefruit" then
+				SpecHealLabel.Text = "Blue: "
+				SpecHealNumber.Text = _G.BlueCount + 2
+				_G.BlueCount = _G.BlueCount + 2
+			end
+		end
+	end)
+	
+	while true do
+		if _G.Toggle == true and _G.SpeedToggle == false then
+			path:FireServer(_G.BaseHeal)
+			HealsNumber.Text = _G.MainCount + 1
+			_G.MainCount = _G.MainCount + 1
+	
+			if _G.BaseHeal == "Bloodfruit" then
+				SpecHealNumber.Text = _G.BloodCount + 1
+				SpecHealLabel.Text = "Blood: "
+				_G.BloodCount = _G.BloodCount + 1
+			elseif _G.BaseHeal == "Berry" then
+				SpecHealLabel.Text = "Berry: "
+				SpecHealNumber.Text = _G.BerryCount + 1
+				_G.BerryCount = _G.BerryCount + 1
+			elseif _G.BaseHeal == "Bluefruit" then
+				SpecHealLabel.Text = "Blue: "
+				SpecHealNumber.Text = _G.BlueCount + 1
+				_G.BlueCount = _G.BlueCount + 1
+			end
+		end
+		wait()
+	end
+end
+coroutine.wrap(JEHM_fake_script)()
+local function FZUNZ_fake_script() -- BoogaHealerV3.IntroScript 
+	local script = Instance.new('LocalScript', BoogaHealerV3)
+
+	wait(1)
+	
+	game:GetService("StarterGui"):SetCore("SendNotification",{
+		Title = "Booga Healer V3",
+		Text = "Simply The Best",
+	})
+	
+	wait()
+	
+	script:Destroy()
+end
+coroutine.wrap(FZUNZ_fake_script)()
+
+local VU = game:GetService("VirtualUser")
+game:GetService('Players').LocalPlayer.Idled:connect(function()
+	VU:CaptureController()
+	VU:ClickButton2(Vector2.new())
+end)
